@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh" class="dark" data-shape="square">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no" />
+  <title>WatchAppLock</title>
+  <link rel="stylesheet" href="colors_and_type.css" />
+  <link rel="stylesheet" href="components.css" />
+  <link rel="stylesheet" href="app.css" />
+</head>
+<body>
+  <div class="app-shell">
+
+    <!-- ============ 顶部 ============ -->
+    <header class="app-header">
+      <div>
+        <div class="app-header__title">应用锁</div>
+        <div class="app-header__sub" id="svcStatus">守护服务…</div>
+      </div>
+      <span class="badge is-muted" id="svcBadge"><span class="dot is-warn"></span> 检查中</span>
+    </header>
+
+    <!-- ============ 滚动区 ============ -->
+    <main class="scroll-area">
+      <div class="content" id="view"></div>
+    </main>
+
+    <!-- ============ 底部导航 ============ -->
+    <nav class="navbar app-nav" id="nav">
+      <a class="navbar__item is-active" data-view="apps">
+        <span class="navbar__icon" data-icon="box"></span><span>应用</span>
+      </a>
+      <a class="navbar__item" data-view="lock">
+        <span class="navbar__icon" data-icon="circle-check"></span><span>方式</span>
+      </a>
+      <a class="navbar__item" data-view="keep">
+        <span class="navbar__icon" data-icon="circle-play"></span><span>保活</span>
+      </a>
+      <a class="navbar__item" data-view="about">
+        <span class="navbar__icon" data-icon="circle-question-mark"></span><span>关于</span>
+      </a>
+    </nav>
+  </div>
+
+  <!-- ============ 应用选择面板 ============ -->
+  <div class="sheet" id="sheetApps">
+    <div class="sheet__panel">
+      <div class="sheet__title">选择要锁定的应用</div>
+      <div id="appList"><div class="spinner"></div></div>
+      <div style="display:flex; gap:8px; margin-top:12px;">
+        <button class="btn secondary block" id="btnCloseApps">取消</button>
+        <button class="btn primary block" id="btnSaveApps">完成</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 开发者选项面板 ============ -->
+  <div class="sheet" id="sheetDev">
+    <div class="sheet__panel">
+      <div class="sheet__title">开发者选项</div>
+      <p class="subtle" style="margin-bottom:10px;">
+        当前设备无 ADB / root，以下分支默认隐藏，不影响主流程。
+      </p>
+      <div class="dev-panel">
+        <div class="card__title">ADB 模式 <span class="badge is-muted" id="adbBadge">检测中</span></div>
+        <p class="subtle" style="margin-bottom:8px;">连数据线执行以下命令，加入 Doze 白名单并免交互授权使用情况：</p>
+        <pre class="code" id="adbCmd">adb shell ...</pre>
+        <button class="btn ghost sm block" id="btnCopyAdb" style="margin-top:8px;">复制命令</button>
+      </div>
+      <div class="dev-panel">
+        <div class="card__title">Root 模式 <span class="badge is-muted" id="rootBadge">检测中</span></div>
+        <p class="subtle">装为系统应用或写 init 守护脚本可获系统级保活。当前设备：</p>
+        <p class="subtle" id="rootText" style="margin-top:6px;">—</p>
+      </div>
+      <button class="btn secondary block" id="btnCloseDev" style="margin-top:12px;">关闭</button>
+    </div>
+  </div>
+
+  <!-- ============ 设置 PIN 面板 ============ -->
+  <div class="sheet" id="sheetPin">
+    <div class="sheet__panel">
+      <div class="sheet__title" id="pinSheetTitle">设置 PIN</div>
+      <p class="subtle" style="margin-bottom:8px;" id="pinSheetDesc">输入 4-8 位数字 PIN</p>
+      <input class="input" id="pinInput1" inputmode="numeric" placeholder="输入 PIN" />
+      <input class="input" id="pinInput2" inputmode="numeric" placeholder="再次输入" style="margin-top:8px;" />
+      <div style="display:flex; gap:8px; margin-top:12px;">
+        <button class="btn secondary block" id="btnClosePin">取消</button>
+        <button class="btn primary block" id="btnSavePin">保存</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

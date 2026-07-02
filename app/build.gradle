@@ -1,0 +1,61 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.watchapplock'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.watchapplock"
+        minSdk 27          // Android 8.1 (API 27)
+        targetSdk 27       // 贴合 8.1，避开更高版本后台限制
+        versionCode 1
+        versionName "1.0.0"
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+        freeCompilerArgs = ['-Xjvm-default=enable']
+    }
+
+    sourceSets {
+        main {
+            java.srcDirs += 'src/main/kotlin'
+        }
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+
+    packagingOptions {
+        resources {
+            excludes += ['META-INF/*.version', 'META-INF/proguard/**']
+        }
+    }
+}
+
+dependencies {
+    // 依赖最小化（规格 §7）：仅 Kotlin 标准库 + AndroidX core，不引入 AppCompat 大包
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.annotation:annotation:1.6.0'
+}
