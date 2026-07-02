@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "com.watchapplock.app-merged_res-8:/xml_accessibility_service_config.xml.flat",
+        "source": "com.watchapplock.app-main-10:/xml/accessibility_service_config.xml"
+    },
+    {
+        "merged": "com.watchapplock.app-merged_res-8:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.watchapplock.app-main-10:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.watchapplock.app-merged_res-8:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.watchapplock.app-main-10:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.watchapplock.app-merged_res-8:/drawable_ic_lock.xml.flat",
+        "source": "com.watchapplock.app-main-10:/drawable/ic_lock.xml"
+    },
+    {
+        "merged": "com.watchapplock.app-merged_res-8:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.watchapplock.app-main-10:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.watchapplock.app-merged_res-8:/xml_device_admin.xml.flat",
+        "source": "com.watchapplock.app-main-10:/xml/device_admin.xml"
+    }
+]

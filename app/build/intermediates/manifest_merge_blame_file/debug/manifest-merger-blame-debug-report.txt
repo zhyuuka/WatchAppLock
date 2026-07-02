@@ -1,0 +1,248 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.watchapplock"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="27"
+9        android:targetSdkVersion="27" />
+10
+11    <!-- ===== 锁核心：使用情况访问 ===== -->
+12    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
+12-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:6:5-7:47
+12-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:6:22-75
+13
+14    <!-- ===== 前台 Service / 保活 ===== -->
+15    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+15-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:10:5-77
+15-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:10:22-74
+16    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+16-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:11:5-81
+16-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:11:22-78
+17    <uses-permission android:name="android.permission.WAKE_LOCK" />
+17-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:12:5-68
+17-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:12:22-65
+18    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+18-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:13:5-95
+18-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:13:22-92
+19    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+19-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:14:5-79
+19-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:14:22-76
+20
+21    <!-- ===== 查询已安装应用包名（API 30+ 限制，targetSdk 27 不强制但声明无害） ===== -->
+22    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+22-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:17:5-18:53
+22-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:17:22-74
+23
+24    <!-- ===== 锁屏覆盖 ===== -->
+25    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+25-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:21:5-78
+25-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:21:22-75
+26
+27    <!-- ===== 手表形态声明 ===== -->
+28    <uses-feature
+28-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:24:5-89
+29        android:name="android.hardware.type.watch"
+29-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:24:19-61
+30        android:required="false" />
+30-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:24:62-86
+31    <uses-feature
+31-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:25:5-89
+32        android:name="android.hardware.touchscreen"
+32-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:25:19-62
+33        android:required="true" />
+33-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:25:63-86
+34
+35    <permission
+35-->[androidx.core:core:1.9.0] /data/user/work/gradle-cache/caches/transforms-3/f4235f98ae3f8d1dcaeebd362b4969bf/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
+36        android:name="com.watchapplock.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+36-->[androidx.core:core:1.9.0] /data/user/work/gradle-cache/caches/transforms-3/f4235f98ae3f8d1dcaeebd362b4969bf/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
+37        android:protectionLevel="signature" />
+37-->[androidx.core:core:1.9.0] /data/user/work/gradle-cache/caches/transforms-3/f4235f98ae3f8d1dcaeebd362b4969bf/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
+38
+39    <uses-permission android:name="com.watchapplock.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+39-->[androidx.core:core:1.9.0] /data/user/work/gradle-cache/caches/transforms-3/f4235f98ae3f8d1dcaeebd362b4969bf/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
+39-->[androidx.core:core:1.9.0] /data/user/work/gradle-cache/caches/transforms-3/f4235f98ae3f8d1dcaeebd362b4969bf/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
+40
+41    <application
+41-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:27:5-121:19
+42        android:name="com.watchapplock.App"
+42-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:28:9-28
+43        android:allowBackup="false"
+43-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:29:9-36
+44        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+44-->[androidx.core:core:1.9.0] /data/user/work/gradle-cache/caches/transforms-3/f4235f98ae3f8d1dcaeebd362b4969bf/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
+45        android:debuggable="true"
+46        android:extractNativeLibs="false"
+47        android:hardwareAccelerated="true"
+47-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:34:9-43
+48        android:icon="@mipmap/ic_launcher"
+48-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:30:9-43
+49        android:label="@string/app_name"
+49-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:32:9-41
+50        android:largeHeap="false"
+50-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:35:9-34
+51        android:roundIcon="@mipmap/ic_launcher_round"
+51-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:31:9-54
+52        android:supportsRtl="true"
+52-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:33:9-35
+53        android:theme="@style/Theme.WatchAppLock" >
+53-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:36:9-50
+54
+55        <!-- ============ 主入口：设置界面 ============ -->
+56        <activity
+56-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:40:9-52:20
+57            android:name="com.watchapplock.SettingsActivity"
+57-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:41:13-45
+58            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation|density"
+58-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:44:13-99
+59            android:exported="true"
+59-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:42:13-36
+60            android:launchMode="singleTask"
+60-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:46:13-44
+61            android:resizeableActivity="true"
+61-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:43:13-46
+62            android:screenOrientation="portrait"
+62-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:45:13-49
+63            android:theme="@style/Theme.WatchAppLock" >
+63-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:47:13-54
+64            <intent-filter>
+64-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:48:13-51:29
+65                <action android:name="android.intent.action.MAIN" />
+65-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:49:17-69
+65-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:49:25-66
+66
+67                <category android:name="android.intent.category.LAUNCHER" />
+67-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:50:17-77
+67-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:50:27-74
+68            </intent-filter>
+69        </activity>
+70
+71        <!-- ============ 锁屏 Activity（瞬时） ============ -->
+72        <activity
+72-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:55:9-66:62
+73            android:name="com.watchapplock.LockScreenActivity"
+73-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:56:13-47
+74            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation|density"
+74-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:59:13-99
+75            android:excludeFromRecents="true"
+75-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:62:13-46
+76            android:exported="false"
+76-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:57:13-37
+77            android:launchMode="singleTask"
+77-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:61:13-44
+78            android:lockTaskMode="if_whitelisted"
+78-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:64:13-50
+79            android:noHistory="false"
+79-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:65:13-38
+80            android:resizeableActivity="true"
+80-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:58:13-46
+81            android:screenOrientation="portrait"
+81-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:60:13-49
+82            android:taskAffinity=""
+82-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:63:13-36
+83            android:theme="@style/Theme.WatchAppLock.Lock" />
+83-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:66:13-59
+84
+85        <!-- ============ 常驻前台 Service ============ -->
+86        <service
+86-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:69:9-73:44
+87            android:name="com.watchapplock.LockGuardService"
+87-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:70:13-45
+88            android:enabled="true"
+88-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:72:13-35
+89            android:exported="false"
+89-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:71:13-37
+90            android:stopWithTask="false" />
+90-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:73:13-41
+91
+92        <!-- ============ 保活兜底任务（JobScheduler） ============ -->
+93        <service
+93-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:76:9-80:72
+94            android:name="com.watchapplock.GuardJobService"
+94-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:77:13-44
+95            android:enabled="true"
+95-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:79:13-35
+96            android:exported="false"
+96-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:78:13-37
+97            android:permission="android.permission.BIND_JOB_SERVICE" />
+97-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:80:13-69
+98
+99        <!-- ============ 可选无障碍增强 ============ -->
+100        <service
+100-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:83:9-93:19
+101            android:name="com.watchapplock.LockAccessibilityService"
+101-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:84:13-53
+102            android:exported="false"
+102-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:85:13-37
+103            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
+103-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:86:13-79
+104            <intent-filter>
+104-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:87:13-89:29
+105                <action android:name="android.accessibilityservice.AccessibilityService" />
+105-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:88:17-92
+105-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:88:25-89
+106            </intent-filter>
+107
+108            <meta-data
+108-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:90:13-92:72
+109                android:name="android.accessibilityservice"
+109-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:91:17-60
+110                android:resource="@xml/accessibility_service_config" />
+110-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:92:17-69
+111        </service>
+112
+113        <!-- ============ 开机/解锁自启动 ============ -->
+114        <receiver
+114-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:96:9-106:20
+115            android:name="com.watchapplock.BootReceiver"
+115-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:97:13-41
+116            android:enabled="true"
+116-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:99:13-35
+117            android:exported="true" >
+117-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:98:13-36
+118            <intent-filter android:priority="1000" >
+118-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:100:13-105:29
+118-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:100:28-51
+119                <action android:name="android.intent.action.BOOT_COMPLETED" />
+119-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:101:17-79
+119-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:101:25-76
+120                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+120-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:102:17-86
+120-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:102:25-83
+121                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+121-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:103:17-82
+121-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:103:25-79
+122                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+122-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:104:17-82
+122-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:104:25-79
+123            </intent-filter>
+124        </receiver>
+125
+126        <!-- ============ 设备管理员（防卸载，可选） ============ -->
+127        <receiver
+127-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:109:9-119:20
+128            android:name="com.watchapplock.WalDeviceAdminReceiver"
+128-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:110:13-51
+129            android:exported="true"
+129-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:111:13-36
+130            android:permission="android.permission.BIND_DEVICE_ADMIN" >
+130-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:112:13-70
+131            <meta-data
+131-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:113:13-115:56
+132                android:name="android.app.device_admin"
+132-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:114:17-56
+133                android:resource="@xml/device_admin" />
+133-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:115:17-53
+134
+135            <intent-filter>
+135-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:116:13-118:29
+136                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+136-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:117:17-82
+136-->/workspace/WatchAppLock/app/src/main/AndroidManifest.xml:117:25-79
+137            </intent-filter>
+138        </receiver>
+139    </application>
+140
+141</manifest>

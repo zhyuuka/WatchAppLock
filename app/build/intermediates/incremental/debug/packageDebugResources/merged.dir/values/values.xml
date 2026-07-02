@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="accent">#5B8DEF</color>
+    <color name="bg_dark">#0E1116</color>
+    <color name="ic_launcher_background">#0E1116</color>
+    <string name="app_name">应用锁</string>
+    <string name="channel_alert">提醒</string>
+    <string name="channel_foreground">守护服务</string>
+    <string name="channel_foreground_desc">保持应用锁常驻运行</string>
+    <string name="device_admin_desc">防止应用锁被直接卸载以绕过锁定</string>
+    <string name="device_admin_label">应用锁 防卸载</string>
+    <string name="fallback_settings">界面加载失败，请重启应用</string>
+    <string name="lock_fail_countdown">%1$d 秒后可重试</string>
+    <string name="lock_fail_too_many">错误次数过多，请稍候</string>
+    <string name="lock_fail_wrong">密码错误，请重试</string>
+    <string name="lock_screen_title">应用已锁定</string>
+    <string name="notification_text">点击打开设置</string>
+    <string name="notification_title">应用锁守护中</string>
+    <style name="Theme.WatchAppLock" parent="@android:style/Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/bg_dark</item>
+        <item name="android:colorBackground">@color/bg_dark</item>
+        <item name="android:statusBarColor">@android:color/black</item>
+        <item name="android:navigationBarColor">@android:color/black</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Activity</item>
+    </style>
+    <style name="Theme.WatchAppLock.Lock" parent="@android:style/Theme.Material.NoActionBar.Fullscreen">
+        <item name="android:windowBackground">@android:color/black</item>
+        <item name="android:colorBackground">@android:color/black</item>
+        <item name="android:statusBarColor">@android:color/black</item>
+        <item name="android:navigationBarColor">@android:color/black</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowShowWallpaper">false</item>
+    </style>
+</resources>

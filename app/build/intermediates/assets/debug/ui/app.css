@@ -1,0 +1,165 @@
+/* ============================================================
+   app.css — 自适应补丁（规格 §8）
+   在官方 Minimal Dashboard 令牌之上追加屏幕比例适配。
+   令牌来源：colors_and_type.css（官方包，勿改）。
+   自适应变量由 DeviceProfile.kt 通过 JS 注入。
+   ============================================================ */
+
+/* 自适应变量（DeviceProfile 注入，默认安全值） */
+:root {
+  --screen-shape: square;
+  --viewport-w: 1;
+  --viewport-h: 1;
+  --safe-inset-top: 0px;
+  --safe-inset-bottom: 0px;
+  --safe-inset-left: 0px;
+  --safe-inset-right: 0px;
+  --tap-target: 44px;
+}
+
+/* html/body 撑满并承载安全区（圆屏 chin 由 --safe-inset-bottom 承载） */
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding:
+    var(--safe-inset-top)
+    var(--safe-inset-right)
+    var(--safe-inset-bottom)
+    var(--safe-inset-left);
+  box-sizing: border-box;
+  overflow: hidden; /* 由 .scroll-area 接管滚动 */
+}
+
+/* app-shell：flex 撑满，子项 min-height:0 防溢出 */
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.app-header {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: calc(var(--space-4) * 3) calc(var(--space-4) * 4);
+  background: var(--background);
+  border-bottom: 1px solid var(--color-border);
+}
+.app-header__title {
+  font-size: 17px;
+  font-weight: 700;
+}
+.app-header__sub {
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+/* 滚动区：flex:1 + min-height:0 防溢出 */
+.scroll-area {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding: calc(var(--space-4) * 3) calc(var(--space-4) * 4) calc(var(--space-4) * 6);
+}
+
+.app-nav { flex: 0 0 auto; }
+
+/* 内容容器最大宽度，超大屏居中 */
+.content { width: 100%; max-width: 480px; margin: 0 auto; }
+
+/* ===================== 圆屏 ===================== */
+:root[data-shape="round"] .app-shell {
+  padding: 6% 8%;
+  border-radius: 50%;
+}
+:root[data-shape="round"] .scroll-area {
+  padding: var(--space-4) calc(var(--space-4) * 3) calc(var(--space-4) * 6);
+}
+:root[data-shape="round"] .app-header {
+  justify-content: center;
+  border-bottom: none;
+  background: transparent;
+}
+/* 圆屏去 chin：底部内容留白已由 body padding 处理 */
+
+/* ===================== 长条屏 ===================== */
+:root[data-shape="tall"] { font-size: 13px; }
+:root[data-shape="tall"] .scroll-area {
+  padding: calc(var(--space-4) * 3) calc(var(--space-4) * 3) calc(var(--space-4) * 6);
+}
+:root[data-shape="tall"] .grid-apps { grid-template-columns: 1fr; }
+
+/* ===================== 宽屏（罕见，双列） ===================== */
+:root[data-shape="wide"] .grid-apps { grid-template-columns: repeat(2, 1fr); }
+:root[data-shape="wide"] .content { max-width: 640px; }
+
+/* ===================== 通用自适应 ===================== */
+img, svg { max-width: 100%; height: auto; }
+
+/* 字号 clamp，适配不同像素密度 */
+h1 { font-size: clamp(18px, 5.2vw, 22px); }
+h2 { font-size: clamp(15px, 4.2vw, 17px); }
+.btn, .input, .list__row { font-size: clamp(12px, 3.6vw, 14px); }
+
+/* 触控目标最小值（手表加大） */
+.btn, .navbar__item, .segmented__opt, .list__row, .input {
+  min-height: var(--tap-target);
+}
+
+/* 已锁应用网格 */
+.grid-apps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+/* 应用选择行 */
+.app-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  min-height: var(--tap-target);
+  padding: var(--space-4) calc(var(--space-4) * 3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+.app-row:active { background: var(--color-surface-muted); }
+.app-row__avatar {
+  flex: 0 0 auto;
+  width: 30px; height: 30px;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-muted);
+  display: grid; place-items: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+.app-row__name {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.app-row__name > div:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.app-row__pkg {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 应用行图标 */
+.app-row__avatar .icon {
+  width: 16px;
+  height: 16px;
+}

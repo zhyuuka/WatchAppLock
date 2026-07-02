@@ -1,0 +1,26 @@
+R_DEF: Internal format may change without notice
+local
+color accent
+color bg_dark
+color ic_launcher_background
+drawable ic_launcher_foreground
+drawable ic_lock
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+string channel_alert
+string channel_foreground
+string channel_foreground_desc
+string device_admin_desc
+string device_admin_label
+string fallback_settings
+string lock_fail_countdown
+string lock_fail_too_many
+string lock_fail_wrong
+string lock_screen_title
+string notification_text
+string notification_title
+style Theme.WatchAppLock
+style Theme.WatchAppLock.Lock
+xml accessibility_service_config
+xml device_admin

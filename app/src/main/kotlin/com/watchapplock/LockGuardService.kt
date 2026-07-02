@@ -25,7 +25,7 @@ class LockGuardService : android.app.Service() {
     companion object {
         private const val TAG = "LockGuardService"
         private const val NOTIF_ID = 1001
-        private const val START_REASON = "start_reason"
+        const val START_REASON = "start_reason"
         const val REASON_BOOT = "boot"
         const val REASON_USER = "user"
         const val REASON_GUARD = "guard"
