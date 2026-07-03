@@ -1,6 +1,7 @@
 package com.watchapplock
 
 import android.app.Activity
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
@@ -51,9 +52,12 @@ class LockScreenActivity : Activity() {
         setContentView(buildUi())
         applyShapePadding()
 
-        // 若未设置 PIN，无法校验——直接放行（防御性，正常流程应先设 PIN）
+        // 若未设置 PIN，无法校验——跳转设置页让用户先设 PIN
         if (!Prefs.hasPin()) {
-            targetPkg?.let { Prefs.markUnlocked(it) }
+            val settingsIntent = Intent(this, SettingsActivity::class.java).apply {
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            }
+            startActivity(settingsIntent)
             finish()
             return
         }

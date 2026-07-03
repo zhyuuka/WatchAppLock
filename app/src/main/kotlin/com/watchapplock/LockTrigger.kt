@@ -29,6 +29,8 @@ object LockTrigger {
 
         if (!Prefs.isLocked(pkg)) return false
         if (Prefs.isUnlocked(pkg)) return false
+        // 未设 PIN 时跳过（锁屏无法校验，不弹无意义界面）
+        if (!Prefs.hasPin()) return false
 
         val now = System.currentTimeMillis()
         val last = lastShown[pkg] ?: 0L

@@ -46,12 +46,8 @@ class LockGuardService : android.app.Service() {
         startForeground(NOTIF_ID, buildNotification())
         Log.d(TAG, "onStartCommand reason=${intent?.getStringExtra(START_REASON)}")
 
-        // 仅在保活开启时轮询；关闭时仍保留前台壳但停止轮询可省电
-        if (Prefs.getKeepAlive()) {
-            poller?.start()
-        } else {
-            poller?.stop()
-        }
+        // 始终启动轮询（keepAlive 仅控制被杀后是否重启，不影响当前运行）
+        poller?.start()
 
         // 被杀后系统尽量重建
         return START_STICKY

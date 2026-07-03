@@ -70,8 +70,8 @@ class SettingsActivity : android.app.Activity() {
         setContentView(webView)
         webView?.loadUrl(HOME_URL)
 
-        // 拉起常驻守护服务（用户主动打开 App，属前台启动，合法）
-        if (Prefs.getKeepAlive()) ServiceGuard.start(applicationContext)
+        // 始终拉起常驻守护服务（keepAlive 仅控制被杀后是否重启，不影响当前运行）
+        ServiceGuard.start(applicationContext)
     }
 
     override fun onResume() {
